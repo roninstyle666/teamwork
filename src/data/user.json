@@ -1,0 +1,20 @@
+{
+  "User":
+  {
+    "code": 200,
+    "msg": "登陆成功",
+    "data": {
+      "token": "654321",
+      "userInfoVo": {
+        "id": 1,
+        "username": "123",
+        "nickName": "风",
+        "sex": 1,
+        "role": 0,
+        "emai1": "z.zvghf@qq.com",
+        "address": "山西省朝阳市长葛市"
+      }
+    }
+  }
+  
+}

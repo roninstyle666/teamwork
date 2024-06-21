@@ -1,0 +1,60 @@
+/* src/Pages/LoginPage/index.css */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('/public/image/2.jpg'); /* 替换为你的背景图片路径 */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .login-content {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.8); /* 半透明白色背景 */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .login-content h1 {
+    margin-bottom: 0;
+  }
+  
+  .login-content p {
+    margin-bottom: 24px;
+  }
+  
+  .login-form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .login-content .login-form-button {
+    width: 100%;
+  }
+  
+  .login-form-forgot {
+    float: right;
+  }
+  .login-form-remember{
+    float: left;
+  }
+  .login-footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #fff; /* 使页脚文本颜色为白色 */
+  }
+  
+  .login-footer a {
+    margin: 0 8px;
+    color: #fff; /* 使页脚链接颜色为白色 */
+  }
+  
+  .login-footer p {
+    margin-top: 8px;
+  }

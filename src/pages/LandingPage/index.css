@@ -1,0 +1,40 @@
+/* src/Pages/LandingPage/index.css */
+.root {
+  flex-grow: 1;
+  
+}
+.appBar {
+  background-color: #ffffff;
+  color: #000000;
+}
+.title {
+  flex-grow: 1;
+}
+.heroImage {
+  width: 100%;
+  height: 400px;
+  background-image: url('/public/image/1.png'); /* 替换为你的图片路径 */
+  background-size: cover;
+  background-position: center;
+}
+.heroContent {
+  padding: 20px;
+  text-align: center;
+}
+.gridItem {
+  padding: 20px;
+}
+.paper {
+  padding: 20px;
+  text-align: center;
+  cursor: pointer; /* Add a cursor pointer to indicate clickable elements */
+  transition: transform 0.3s ease; /* Add a transition for a smooth hover effect */
+}
+.paper:hover {
+  transform: scale(1.05); /* Add a hover effect */
+}
+.footer {
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}

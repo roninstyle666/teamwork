@@ -1,0 +1,40 @@
+/* src/Pages/ProductDetailsPage/index.css */
+.product-details-container {
+    padding: 20px;
+  }
+  
+  .product-details-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .product-image {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+  }
+  
+  .product-info {
+    flex: 1;
+  }
+  
+  .product-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .product-basic-info {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .product-preview {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .action-records {
+    margin-top: 20px;
+  }

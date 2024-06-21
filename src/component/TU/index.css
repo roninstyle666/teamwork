@@ -1,0 +1,28 @@
+/* src/Pages/DataDashboard/index.css */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .dashboard-tabs {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center
+  }
+  
+  .chart-container {
+    width: 80vw; /* 调整图表宽度 */
+    height: 60vh; /* 调整图表高度 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

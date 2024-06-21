@@ -1,0 +1,18 @@
+{
+    "code": "200",
+    "msg": "请求成功",
+    "data": [
+        {
+            "number": 16,
+            "manner": 0
+        },
+        {
+            "number": 32,
+            "manner": 1
+        },
+        {
+            "number": 16,
+            "manner": 2
+        }
+    ]
+}

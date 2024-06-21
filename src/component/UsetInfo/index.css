@@ -1,0 +1,11 @@
+/* src/Pages/UserInfo/index.css */
+.user-info-container {
+
+  background-color: #fff;
+
+}
+
+h2 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+}

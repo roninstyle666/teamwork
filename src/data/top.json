@@ -1,0 +1,86 @@
+{
+    "code": 200,
+    "msg": "Success",
+    "data": [
+        {
+            "number": 8,
+            "type": "乐器用品"
+        },
+        {
+            "number": 5,
+            "type": "电子游戏"
+        },
+        {
+            "number": 5,
+            "type": "影视用品"
+        },
+        {
+            "number": 4,
+            "type": "家居及厨房用具"
+        },
+        {
+            "number": 4,
+            "type": "收藏品及美术用品"
+        },
+        {
+            "number": 4,
+            "type": "优质美容"
+        },
+        {
+            "number": 3,
+            "type": "CD及黑胶唱片"
+        },
+        {
+            "number": 3,
+            "type": "食品"
+        },
+        {
+            "number": 3,
+            "type": "艺术，手工艺品及缝纫"
+        },
+        {
+            "number": 3,
+            "type": "宠物用品"
+        },
+        {
+            "number": 3,
+            "type": "手工制作"
+        },
+        {
+            "number": 3,
+            "type": "花园与户外"
+        },
+        {
+            "number": 2,
+            "type": "家电"
+        },
+        {
+            "number": 2,
+            "type": "美容与个人护理"
+        },
+        {
+            "number": 2,
+            "type": "婴儿用品"
+        },
+        {
+            "number": 2,
+            "type": "手机及配件"
+        },
+        {
+            "number": 2,
+            "type": "工具与家居装饰"
+        },
+        {
+            "number": 1,
+            "type": "行李及旅行装备"
+        },
+        {
+            "number": 1,
+            "type": "汽车零配件"
+        },
+        {
+            "number": 1,
+            "type": "工业及科学用品"
+        }
+    ]
+}
