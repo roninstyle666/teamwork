@@ -15,7 +15,7 @@ export const getProduct = (data:{"pageNumber": number,
 export const SearchProduct = (data:{ 
     "pageNumber": number,
     "pageSize": number,
-     "id": number,
+     "id": string,
     "productName": string,
     "store": number,
     "onlineTime": string,
@@ -35,7 +35,7 @@ export const SearchProduct = (data:{
        method: 'post',
       
        data: { 
-        pageNumber: 1,
+        pageNumber: 4,
         pageSize: 10,
          id: data.id,
         productName: data.productName,
@@ -60,7 +60,7 @@ export const userout = () => {
         data: {     },
     })
 }
-export const changeStatus= (status:number,ids:number,) => {
+export const changeStatus= (status:number,ids:string,) => {
     return http.request({
         
         url: 'https://f192960197dfe05de74b42bb7099b37d.pty.oscollege.net/product/update-productStatus',
@@ -119,41 +119,47 @@ export const addProduct = (data:({
         },
 })
 }
-export const  NumShow= (data:{"beginTime":string,"endTime":string})=> {
+export const  NumShow= (data:{beginTime:string,endTime:string})=> {
     return http.request(
         {headers: {
             'Content-Type': 'application/json;charset=UTF-8',
             'Accept': 'application/json;charset=UTF-8',
         },
-            url: 'https://4769edc2b24d4cda00018d4807478bf9.pty.oscollege.net/DataView/NumShow',
-            method: 'get',
-            data: { data},
+            url: 'https://4769edc2b24d4cda00018d4807478bf9.pty.oscollege.net/DataView/NumShow/TimeShow',
+            method: 'post',
+            data: {beginTime:data.beginTime,endTime:data.endTime},
         })
     
 }
-export const  TopShow= (data:{"beginTime":string,"endTime":string})=> {
+export const  TopShow= (data:{beginTime:string,endTime:string})=> {
     return http.request(
         {headers: {
             'Content-Type': 'application/json;charset=UTF-8',
             'Accept': 'application/json;charset=UTF-8',
         },
-            url: 'https://4769edc2b24d4cda00018d4807478bf9.pty.oscollege.net/DataView/TopShow',
-            method: 'get',
-            data: { data},
+            url: 'https://4769edc2b24d4cda00018d4807478bf9.pty.oscollege.net/DataView/TopShow/TimeShow',
+            method: 'post',
+            data: {beginTime:data.beginTime,endTime:data.endTime},
         })
     
 }
-export const  channelShow= (data:{"beginTime":string,"endTime":string})=> {
+export const  channelShow= (data:{beginTime:string,endTime:string})=> {
     return http.request(
         {headers: {
             'Content-Type': 'application/json;charset=UTF-8',
             'Accept': 'application/json;charset=UTF-8',
         },
             url: 'https://4769edc2b24d4cda00018d4807478bf9.pty.oscollege.net/DataView/channelShow/TimeShow',
-            method: 'get',
-            data: { data},
+            method: 'post',
+            data:{beginTime:data.beginTime,endTime:data.endTime},
         })
     
+}
+export const getProductDetail= (data:{"productId":string})=> {
+  
+        
+            
+            
 }
 
 

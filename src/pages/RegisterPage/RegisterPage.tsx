@@ -3,17 +3,20 @@ import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined,MobileOutlined } from '@ant-design/icons';
 import './index.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 const RegisterPage: React.FC = () => {
+  const usenavigate =useNavigate()
   const out = async (values: any) => {
+    const use={nickName:values.nickName,username:values.username,phone:values.phone,password:values.password}
     try {
-      const res = await axios.post('http://localhost:8085/user/register', JSON.stringify(values));
+      const res = await axios.post('https://d29ca72fcb1a04bf75c7cae4a1e8354f.pty.oscollege.net/user/register', use);
       console.log(res);
-      if (res.data[0] != undefined) {
-        if (res.data[0].code ==='200') {
-         console.log(res.data[0].data.userInfoVo);//打印返回信息
-          window.location.href = '/Login';
+      if (res.data.code != undefined) {
+        if (res.data.code ===200) {
+        
+          usenavigate('/Login')
         }
       }
     } catch (error) {

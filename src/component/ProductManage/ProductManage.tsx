@@ -20,12 +20,16 @@ import { Form, Input, Button, Row, Col, DatePicker, Select } from 'antd';
 
 import { setSearch,resetSearch } from '../../store/Search';
 import Search from 'antd/es/transfer/search';
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 const { RangePicker } = DatePicker;
 const { Option } = Select;
 
 const ProductManage:React.FC = () => {
+  //const [sta,setsta]=useState<number>(1);
   const[k,setk]=useState(3)
+  const [sta,setsta]=useState<number>(1)
+
+ 
   const onChange = (key: string) => {
     console.log(key);
     setk(Number(key))
@@ -35,9 +39,9 @@ const ProductManage:React.FC = () => {
   const [state, setState] = useState([{}])
   const [SearchData, setSearchData] = useState({});
   const[s,sets]=useState({ 
-    "pageNumber": 1,
+    "pageNumber": 4,
     "pageSize": 10,
-    "id": 0,
+    "id": '',
     "productName": '',
     "store": 0,
     "onlineTime": '',
@@ -71,7 +75,7 @@ const ProductManage:React.FC = () => {
     sets(searchdata)
   }
   useEffect(() => {
-    if(s.id !== 0){
+    if(s.id !== '0'){
       SearchProduct(s).then((data) => {
         console.log(data)
         const rows =data.data.data.rows
@@ -105,15 +109,15 @@ const ProductManage:React.FC = () => {
         
         
       }
-  }, [k,s])
+  }, [k,s,sta])
   
-  const [sta,setsta]=useState<number>(1);
+
  const change=(status: any,ids: any)=>{
- 
-  if(status==1){setsta(0)}
-   changeStatus(sta,ids).then((data:any) => {
+
+   changeStatus(status,ids).then((data:any) => {
+    setsta(status)
      if(data.data.code === 200){
-      navigate('/Manage/ProductManage')
+      redirect('/Manage')
      }else{
        alert(data.data.msg)
      }
@@ -192,9 +196,9 @@ const columns = [
 
       switch (status.status) {
         case 0:
-          return <Button type='primary'ghost style={{  width:'87.33px'}} onClick={() =>change(0,status.id)}>上线</Button>;
+          return <Button type='primary'ghost style={{  width:'87.33px'}} onClick={() =>change(1,status.id)}>上线</Button>;
         case 1:
-          return <Button style={{  width:'87.33px'}}danger={true} onClick={() =>change(1,status.id)}>下线</Button>;
+          return <Button style={{  width:'87.33px'}}danger={true} onClick={() =>change(0,status.id)}>下线</Button>;
         case 2:
           return <Button style={{  width:'87.33px'}}disabled={true}>审核中</Button>;
         case 3:

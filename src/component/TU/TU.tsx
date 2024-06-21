@@ -19,12 +19,13 @@ const TU: React.FC = () => {
     dayjs().subtract(8, 'days'),
     dayjs().subtract(1, 'days')
   ]);
-  const [Day1,setDay1]=useState<any>('')
-  const [Day2,setDay2]=useState<any>('')
+  const [Day1,setDay1]=useState<any>((dates[0].format('YYYY-MM-DD')))
+  const [Day2,setDay2]=useState<any>((dates[1].format('YYYY-MM-DD')))
   useEffect(() => {
-  setDay1(JSON.stringify(dates[0].format('YYYY-MM-DD')))
-  setDay2(JSON.stringify(dates[1].format('YYYY-MM-DD')))
+  setDay1((dates[0].format('YYYY-MM-DD')))
+  setDay2((dates[1].format('YYYY-MM-DD')))
 },[dates])
+  
  
   const[Data,setData]=useState<Array<number>>([])
   const[Date,setDate]=useState<Array<string>>([])
@@ -45,7 +46,7 @@ const TU: React.FC = () => {
     console.log(res);
     const numbers: number[] = [];
     const Dates: string[] = [];
-    res.data.forEach((item: any) => {
+    res.data.data.forEach((item: any) => {
         numbers.push(item.number);
         Dates.push(item.date);
     })
@@ -62,7 +63,7 @@ const TU: React.FC = () => {
         console.log(res);
         const numbers: number[] = [];
         const types: string[] = [];
-        res.data.forEach((item: any) => {
+        res.data.data.forEach((item: any) => {
             numbers.push(item.number);
             types.push(item.type);
         })
@@ -79,7 +80,7 @@ const TU: React.FC = () => {
         console.log(res);
         var i=0;
         const data:[{value:number,name:string},{value:number,name:string},{value:number,name:string}]=[{value:0,name:'纯积分'},{value:0,name:'积分+现金'},{value:0,name:'纯现金'}]
-        res.data.forEach((item: any) => {
+        res.data.data.forEach((item: any) => {
             data[i].value+=item.number
            i++ 
         })

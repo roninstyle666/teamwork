@@ -124,11 +124,11 @@ const upimg = async (file:any)=>{
         </Form.Item>
         <Form.Item
           label="商品头图"
-          name="image"
+          name="img"
           rules={[{ required: true, message: '请上传商品头图' }]}
         >
           <Upload
-            name="productImage"
+            
             headers={{ token , 'Content-Type': 'multipart/form-data'}}
              action='https://2b299711a3ee1b94e05ac49fc351a4ab.pty.oscollege.net/photo-upload'// 修改为您的实际上传地址
             listType="picture"
