@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Tabs, Button, Modal, Table, Select, InputNumber, Card, Typography, Descriptions, Spin } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import './index.css';  // 引入样式文件
+import { getOperationLog, getProductDetail } from '../../api';
 
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -22,56 +23,50 @@ const ProductDetailsPage: React.FC = () => {
   const [pageSize, setPageSize] = useState<number>(5);
   const [userRole, setUserRole] = useState<string | null>('0'); // 设置为商家角色
   const [loading, setLoading] = useState<boolean>(true); // 添加加载状态
-
+ const[good, setGood]=useState({ 
+  image: 'https://via.placeholder.com/150',
+  productName: '测试商品',
+  proxyUserName: '管理员',
+  createUserName: '创建人',
+  id: '123456',
+  status: 0,
+  store: 100,
+  onlineTime: '2023-01-01',
+  offlineTime: '2023-12-31',
+  price: 100,
+  points: 10,
+  description: '这是一个测试商品的描述。',
+  className: '分类1',
+  typeName: '类型1',
+  launchCity: '城市1',
+  nonDeliveryCity: '城市2',
+  number: 50,
+  vendorName: '供应商1',
+  serviceGuarantee: '服务保障信息',
+  vendorPhone: '1234567890',
+  sales: 200,
+  approved: false, })
+  const[operation,setOperation]=useState([{}])
+  const goodid=JSON.stringify(localStorage.getItem('goodid'))
+  const getgood=async()=>{
+    const res = await getProductDetail(goodid);
+    setGood(res.data.data);
+  }
+ 
+ 
+  const Opera=async()=>{
+    const res = await getOperationLog();
+    setOperation(res.data.data.rows);
+  }
   useEffect(() => {
-    // 使用假数据进行测试
-    const fakeProductDetails = {
-      image: 'https://via.placeholder.com/150',
-      productName: '测试商品',
-      proxyUserName: '管理员',
-      createUserName: '创建人',
-      id: '123456',
-      status: 0,
-      store: 100,
-      onlineTime: '2023-01-01',
-      offlineTime: '2023-12-31',
-      price: 100,
-      points: 10,
-      description: '这是一个测试商品的描述。',
-      className: '分类1',
-      typeName: '类型1',
-      launchCity: '城市1',
-      nonDeliveryCity: '城市2',
-      number: 50,
-      vendorName: '供应商1',
-      serviceGuarantee: '服务保障信息',
-      vendorPhone: '1234567890',
-      sales: 200,
-      approved: false, // 假设这是商品是否审批通过的字段
-    };
-
-    const fakeOperationRecords = [
-      {
-        id: '1',
-        operatorStatus: '已完成',
-        updateTime: '2023-01-01 10:00:00',
-        description: '操作记录1',
-        operatorUserId: '操作人1',
-      },
-      {
-        id: '2',
-        operatorStatus: '处理中',
-        updateTime: '2023-01-02 11:00:00',
-        description: '操作记录2',
-        operatorUserId: '操作人2',
-      },
-    ];
-
-    setProductDetails(fakeProductDetails);
-    setOperationRecords(fakeOperationRecords);
-    setTotalRecords(fakeOperationRecords.length);
-    setLoading(false);
+    getgood();
+    Opera();
   }, []);
+    setProductDetails(good);
+    setOperationRecords(operation);
+    setTotalRecords(operation.length);
+    setLoading(false);
+
 
   const handleTabChange = (key: string) => {
     setActiveTab(key);

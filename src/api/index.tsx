@@ -35,7 +35,7 @@ export const SearchProduct = (data:{
        method: 'post',
       
        data: { 
-        pageNumber: 4,
+        pageNumber: 1,
         pageSize: 10,
          id: data.id,
         productName: data.productName,
@@ -155,12 +155,39 @@ export const  channelShow= (data:{beginTime:string,endTime:string})=> {
         })
     
 }
-export const getProductDetail= (data:{"productId":string})=> {
+export const getProductDetail= (id:string)=> {
+    return http.request(
+        {
+            url: 'https://f192960197dfe05de74b42bb7099b37d.pty.oscollege.net/product/get-detailProduct?id='+id,
+            method: 'get',
+           
+           
+        })
   
         
             
             
 }
+export const fileUpload= (file:any)=> {
+    return http.request(
+        {headers: {
+            'Content-Type': 'mutilpart/form-data',
+        },
+            url: 'https://2b299711a3ee1b94e05ac49fc351a4ab.pty.oscollege.net/photo-upload',
+            method: 'post',
+            data: file,
+        })
+}
+export const getOperationLog= ()=> {
+    return http.request(
+        {   
+            url: 'https://d497e27773de8c7fb00c2abbf058cec4.pty.oscollege.net/productOperator/page',
+            method: 'get',
+            params:{pageNumber:1,pageSize:10}
+            
+        })
+    } 
+
 
 
 

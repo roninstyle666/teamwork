@@ -6,7 +6,7 @@ import { Content } from 'antd/es/layout/layout';
 import { UploadOutlined,MinusCircleOutlined,PlusOutlined } from '@ant-design/icons';
 
 import { PageHeader } from '@ant-design/pro-components';
-import { addProduct } from '../../api';
+import { addProduct, fileUpload } from '../../api';
 import { useNavigate } from 'react-router-dom';
 import { subscribe } from 'diagnostics_channel';
 
@@ -39,20 +39,28 @@ const ProductCreate: React.FC = () => {
     addProduct(values);
     navigate('/Manage');
   };
-const upimg = async (file:any)=>{
-  
-}
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
   };
+ 
+
   const handleImageChange = (info: any) => {
-    if (info.file.status === 'done') {
-      // Get this url from response in real world.
-      setImageURL(info.file.response.url);
-      message.success(`${info.file.name} file uploaded successfully`);
-    } else if (info.file.status === 'error') {
-      message.error(`${info.file.name} file upload failed.`);
-    }
+    
+    const formdata=new FormData();
+    formdata.append('file', info.file);
+    console.log(info.file);
+    console.log(formdata);
+    fileUpload(formdata).then((res) => {
+      if (res.data.code === 200) {
+        // Get this url from response in real world.
+        setImageURL(res.data.data);
+        message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+      
+    })
+    
   };
   const priceTypes = [
     { label: '纯积分', value: 0},
@@ -124,14 +132,13 @@ const upimg = async (file:any)=>{
         </Form.Item>
         <Form.Item
           label="商品头图"
-          name="img"
+          name="file"
           rules={[{ required: true, message: '请上传商品头图' }]}
         >
           <Upload
-            
-            headers={{ token , 'Content-Type': 'multipart/form-data'}}
-             action='https://2b299711a3ee1b94e05ac49fc351a4ab.pty.oscollege.net/photo-upload'// 修改为您的实际上传地址
+            name='file'
             listType="picture"
+            
             onChange={handleImageChange}
           >
             <Button icon={<UploadOutlined />}>上传商品头图</Button>

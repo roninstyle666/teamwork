@@ -26,6 +26,7 @@ const { Option } = Select;
 
 const ProductManage:React.FC = () => {
   //const [sta,setsta]=useState<number>(1);
+  const navigate = useNavigate();
   const[k,setk]=useState(3)
   const [sta,setsta]=useState<number>(1)
 
@@ -39,7 +40,7 @@ const ProductManage:React.FC = () => {
   const [state, setState] = useState([{}])
   const [SearchData, setSearchData] = useState({});
   const[s,sets]=useState({ 
-    "pageNumber": 4,
+    "pageNumber": 1,
     "pageSize": 10,
     "id": '',
     "productName": '',
@@ -110,6 +111,10 @@ const ProductManage:React.FC = () => {
         
       }
   }, [k,s,sta])
+  const goodidset=(id:any)=>{
+    localStorage.setItem('goodid',id)
+     navigate('/Manage/ProductDetail')
+  }
   
 
  const change=(status: any,ids: any)=>{
@@ -123,7 +128,7 @@ const ProductManage:React.FC = () => {
      }
   })
  }
- const navigate = useNavigate();
+
   const newProduct = () => {
     navigate('/Manage/ProductCreate');
     
@@ -137,7 +142,7 @@ const columns = [
     dataIndex: 'id',
     key: 'id',
     render: (id: any) => {
-      return <Button type='link' onClick={() =>navigate(`/Manage/ProductDetail`)}>{id}</Button>
+      return <Button type='link' onClick={()=>goodidset(id)}>{id}</Button>
     }
   },
   {

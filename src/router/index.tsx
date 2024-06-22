@@ -13,44 +13,44 @@ import UserInfo from "../component/UsetInfo";
 const routes: RouteObject[] = [
   {
     path: "/",
-    element: <Landing />,
+    element: <Landing />,//landing页面
     
   },
   {
     path: "/Login",
-    element: <LoginPage/>
+    element: <LoginPage/>//登录页面
   },
   {
     path: "/Register",
-    element: <RegisterPage/>,
+    element: <RegisterPage/>,//注册页面
   },
   {
     path:"/Manage",
-    element:<Manage/>,
+    element:<Manage/>,//工作台主路由
     children: [
       {
         index: true,
-        element: <ProductManage/>,
+        element: <ProductManage/>,//商品管理页面
       },
       {
         path: "/Manage/ProductManage",
-        element: <ProductManage/>,
+        element: <ProductManage/>,//商品管理页面
       },
       {
         path: "/Manage/TU",
-        element: <TU/>,
+        element: <TU/>,//数据大盘页面
       },
       {
         path: "/Manage/ProductDetail",
-        element: <ProductDetail/>,
+        element: <ProductDetail/>,//商品详情页面
         
       },
       {path:"/Manage/ProductCreate",
-        element:<ProductCreate/>,
+        element:<ProductCreate/>,//商品创建页面
       },
       {
         path: "/Manage/UserInfo",
-        element: <UserInfo/>,
+        element: <UserInfo/>,//用户信息页面
       }
     ],
   },
